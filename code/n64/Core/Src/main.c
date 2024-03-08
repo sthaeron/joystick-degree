@@ -119,6 +119,8 @@ int main(void)
         HAL_GPIO_WritePin(green_LED_GPIO_Port, green_LED_Pin, GPIO_PIN_RESET);
       }
     }
+    prev_xA = curr_xA;
+    prev_yA = curr_yA;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
