@@ -1,4 +1,4 @@
-BINARY = hello-opencm3
+BINARY = joystick-opencm3
 BUILD_DIR = bin
 
 DEVICE = stm32f051r8t6

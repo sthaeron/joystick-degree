@@ -4,3 +4,6 @@
 [submodule "code/usart-opencm3/libopencm3"]
 	path = code/usart-opencm3/libopencm3
 	url = https://github.com/libopencm3/libopencm3.git
+[submodule "code/joystick-opencm3/libopencm3"]
+	path = code/joystick-opencm3/libopencm3
+	url = https://github.com/libopencm3/libopencm3.git
