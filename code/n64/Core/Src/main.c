@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usart_test.h"
+#include "n64_functions.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,7 +98,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   /* If not testing, comment out following code*/
-
+  n64_loop();
   uart_testing();
 
   /* This concludes testing code*/
