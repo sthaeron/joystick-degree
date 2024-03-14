@@ -9,8 +9,8 @@
 #include "usart.h"
 #include <stdio.h>
 
-uint8_t x_pos = 0;
-uint8_t y_pos = 0;
+int8_t x_pos = 0;
+int8_t y_pos = 0;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
