@@ -267,9 +267,6 @@ Discarded input sections
  .group         0x00000000        0xc src//main.o
  .group         0x00000000        0xc src//main.o
  .group         0x00000000        0xc src//main.o
- .group         0x00000000        0xc src//main.o
- .group         0x00000000        0xc src//main.o
- .group         0x00000000        0xc src//main.o
  .text          0x00000000        0x0 src//main.o
  .data          0x00000000        0x0 src//main.o
  .bss           0x00000000        0x0 src//main.o
@@ -358,9 +355,6 @@ Discarded input sections
  .debug_macro   0x00000000       0xe8 src//usart.o
  .debug_macro   0x00000000       0x52 src//usart.o
  .debug_macro   0x00000000      0x178 src//usart.o
- .debug_macro   0x00000000       0x94 src//usart.o
- .debug_macro   0x00000000      0x514 src//usart.o
- .debug_macro   0x00000000       0x34 src//usart.o
  .group         0x00000000        0xc ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
  .group         0x00000000        0xc ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
  .group         0x00000000        0xc ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
@@ -2143,7 +2137,7 @@ LOAD linker stubs
  .debug_rnglists
                 0x000003bb       0x25 ./libopencm3//lib/libopencm3_stm32f0.a(flash_common_all.o)
 
-.debug_macro    0x00000000     0x58bb
+.debug_macro    0x00000000     0x5896
  .debug_macro   0x00000000      0x122 src//clock.o
  .debug_macro   0x00000122      0xaa8 src//clock.o
  .debug_macro   0x00000bca       0x1c src//clock.o
@@ -2165,74 +2159,74 @@ LOAD linker stubs
  .debug_macro   0x00001f47       0x49 src//clock.o
  .debug_macro   0x00001f90       0xca src//clock.o
  .debug_macro   0x0000205a       0x6f src//clock.o
- .debug_macro   0x000020c9      0x1f5 src//main.o
- .debug_macro   0x000022be       0x75 src//main.o
- .debug_macro   0x00002333       0x24 src//main.o
- .debug_macro   0x00002357       0x5c src//main.o
- .debug_macro   0x000023b3       0x3c src//main.o
- .debug_macro   0x000023ef       0x34 src//main.o
- .debug_macro   0x00002423       0x16 src//main.o
- .debug_macro   0x00002439       0x57 src//main.o
- .debug_macro   0x00002490       0x9e src//main.o
- .debug_macro   0x0000252e      0x38c src//main.o
- .debug_macro   0x000028ba      0x10b src//main.o
- .debug_macro   0x000029c5       0x10 src//main.o
- .debug_macro   0x000029d5       0x16 src//main.o
- .debug_macro   0x000029eb       0x4a src//main.o
- .debug_macro   0x00002a35       0x34 src//main.o
- .debug_macro   0x00002a69       0x10 src//main.o
- .debug_macro   0x00002a79       0x58 src//main.o
- .debug_macro   0x00002ad1      0x1de src//main.o
- .debug_macro   0x00002caf       0x16 src//main.o
- .debug_macro   0x00002cc5       0x16 src//main.o
- .debug_macro   0x00002cdb      0x12a src//main.o
- .debug_macro   0x00002e05       0x94 src//main.o
- .debug_macro   0x00002e99      0x514 src//main.o
- .debug_macro   0x000033ad       0x34 src//main.o
- .debug_macro   0x000033e1      0x1e7 src//usart.o
- .debug_macro   0x000035c8       0x10 src//usart.o
- .debug_macro   0x000035d8      0x189 src//usart.o
- .debug_macro   0x00003761      0x23c src//usart.o
- .debug_macro   0x0000399d       0x3c src//usart.o
- .debug_macro   0x000039d9       0x16 src//usart.o
- .debug_macro   0x000039ef       0x10 src//usart.o
- .debug_macro   0x000039ff       0x9e src//usart.o
- .debug_macro   0x00003a9d      0x4fe src//usart.o
- .debug_macro   0x00003f9b       0xd6 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
- .debug_macro   0x00004071      0xaa2 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
- .debug_macro   0x00004b13       0xd6 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_f0234.o)
- .debug_macro   0x00004be9      0x10d ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_macro   0x00004cf6       0x16 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_macro   0x00004d0c       0xee ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_macro   0x00004dfa       0xd0 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_macro   0x00004eca      0x360 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_macro   0x0000522a       0xce ./libopencm3//lib/libopencm3_stm32f0.a(rcc_common_all.o)
- .debug_macro   0x000052f8       0xd9 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_all.o)
- .debug_macro   0x000053d1       0xc1 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_v2.o)
- .debug_macro   0x00005492       0xcf ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
- .debug_macro   0x00005561      0x19f ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
- .debug_macro   0x00005700       0x92 ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
- .debug_macro   0x00005792       0x69 ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
- .debug_macro   0x000057fb       0xc0 ./libopencm3//lib/libopencm3_stm32f0.a(flash_common_all.o)
+ .debug_macro   0x000020c9      0x1d0 src//main.o
+ .debug_macro   0x00002299       0x75 src//main.o
+ .debug_macro   0x0000230e       0x24 src//main.o
+ .debug_macro   0x00002332       0x5c src//main.o
+ .debug_macro   0x0000238e       0x3c src//main.o
+ .debug_macro   0x000023ca       0x34 src//main.o
+ .debug_macro   0x000023fe       0x16 src//main.o
+ .debug_macro   0x00002414       0x57 src//main.o
+ .debug_macro   0x0000246b       0x9e src//main.o
+ .debug_macro   0x00002509      0x38c src//main.o
+ .debug_macro   0x00002895      0x10b src//main.o
+ .debug_macro   0x000029a0       0x10 src//main.o
+ .debug_macro   0x000029b0       0x16 src//main.o
+ .debug_macro   0x000029c6       0x4a src//main.o
+ .debug_macro   0x00002a10       0x34 src//main.o
+ .debug_macro   0x00002a44       0x10 src//main.o
+ .debug_macro   0x00002a54       0x58 src//main.o
+ .debug_macro   0x00002aac      0x1de src//main.o
+ .debug_macro   0x00002c8a       0x16 src//main.o
+ .debug_macro   0x00002ca0       0x16 src//main.o
+ .debug_macro   0x00002cb6      0x12a src//main.o
+ .debug_macro   0x00002de0      0x1e7 src//usart.o
+ .debug_macro   0x00002fc7       0x10 src//usart.o
+ .debug_macro   0x00002fd7      0x189 src//usart.o
+ .debug_macro   0x00003160      0x23c src//usart.o
+ .debug_macro   0x0000339c       0x3c src//usart.o
+ .debug_macro   0x000033d8       0x16 src//usart.o
+ .debug_macro   0x000033ee       0x10 src//usart.o
+ .debug_macro   0x000033fe       0x9e src//usart.o
+ .debug_macro   0x0000349c      0x4fe src//usart.o
+ .debug_macro   0x0000399a       0x94 src//usart.o
+ .debug_macro   0x00003a2e      0x514 src//usart.o
+ .debug_macro   0x00003f42       0x34 src//usart.o
+ .debug_macro   0x00003f76       0xd6 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
+ .debug_macro   0x0000404c      0xaa2 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
+ .debug_macro   0x00004aee       0xd6 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_f0234.o)
+ .debug_macro   0x00004bc4      0x10d ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_macro   0x00004cd1       0x16 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_macro   0x00004ce7       0xee ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_macro   0x00004dd5       0xd0 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_macro   0x00004ea5      0x360 ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_macro   0x00005205       0xce ./libopencm3//lib/libopencm3_stm32f0.a(rcc_common_all.o)
+ .debug_macro   0x000052d3       0xd9 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_all.o)
+ .debug_macro   0x000053ac       0xc1 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_v2.o)
+ .debug_macro   0x0000546d       0xcf ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
+ .debug_macro   0x0000553c      0x19f ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
+ .debug_macro   0x000056db       0x92 ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
+ .debug_macro   0x0000576d       0x69 ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
+ .debug_macro   0x000057d6       0xc0 ./libopencm3//lib/libopencm3_stm32f0.a(flash_common_all.o)
 
-.debug_line     0x00000000     0x423d
+.debug_line     0x00000000     0x41fc
  .debug_line    0x00000000      0x466 src//clock.o
- .debug_line    0x00000466      0x4a9 src//main.o
- .debug_line    0x0000090f      0x483 src//usart.o
- .debug_line    0x00000d92      0x448 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
- .debug_line    0x000011da      0x52b ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_f0234.o)
- .debug_line    0x00001705      0xcdc ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
- .debug_line    0x000023e1      0x4ed ./libopencm3//lib/libopencm3_stm32f0.a(rcc_common_all.o)
- .debug_line    0x000028ce      0x78e ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_all.o)
- .debug_line    0x0000305c      0x5c8 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_v2.o)
- .debug_line    0x00003624      0x422 ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
- .debug_line    0x00003a46      0x42f ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
- .debug_line    0x00003e75      0x3c8 ./libopencm3//lib/libopencm3_stm32f0.a(flash_common_all.o)
+ .debug_line    0x00000466      0x468 src//main.o
+ .debug_line    0x000008ce      0x483 src//usart.o
+ .debug_line    0x00000d51      0x448 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
+ .debug_line    0x00001199      0x52b ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_f0234.o)
+ .debug_line    0x000016c4      0xcdc ./libopencm3//lib/libopencm3_stm32f0.a(rcc.o)
+ .debug_line    0x000023a0      0x4ed ./libopencm3//lib/libopencm3_stm32f0.a(rcc_common_all.o)
+ .debug_line    0x0000288d      0x78e ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_all.o)
+ .debug_line    0x0000301b      0x5c8 ./libopencm3//lib/libopencm3_stm32f0.a(usart_common_v2.o)
+ .debug_line    0x000035e3      0x422 ./libopencm3//lib/libopencm3_stm32f0.a(vector.o)
+ .debug_line    0x00003a05      0x42f ./libopencm3//lib/libopencm3_stm32f0.a(systick.o)
+ .debug_line    0x00003e34      0x3c8 ./libopencm3//lib/libopencm3_stm32f0.a(flash_common_all.o)
 
 .debug_str      0x00000000    0x1273d
  .debug_str     0x00000000    0x1273d src//clock.o
                                0x8b73 (size before relaxing)
- .debug_str     0x0001273d     0xd684 src//main.o
+ .debug_str     0x0001273d     0xbad1 src//main.o
  .debug_str     0x0001273d     0xb15e src//usart.o
  .debug_str     0x0001273d     0x5fe5 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_all.o)
  .debug_str     0x0001273d     0x6007 ./libopencm3//lib/libopencm3_stm32f0.a(gpio_common_f0234.o)
