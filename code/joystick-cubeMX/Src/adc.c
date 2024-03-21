@@ -33,6 +33,8 @@ void MX_ADC_Init(void)
 
   /* USER CODE END ADC_Init 0 */
 
+  //ADC_ChannelConfTypeDef sConfig = {0};
+
   /* USER CODE BEGIN ADC_Init 1 */
 
   /* USER CODE END ADC_Init 1 */
@@ -43,16 +45,16 @@ void MX_ADC_Init(void)
   hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc.Init.Resolution = ADC_RESOLUTION_12B;
   hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc.Init.ScanConvMode = ADC_SCAN_ENABLE;
+  hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc.Init.LowPowerAutoWait = DISABLE;
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc.Init.ContinuousConvMode = ENABLE;
+  hadc.Init.ContinuousConvMode = DISABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc.Init.DMAContinuousRequests = DISABLE;
-  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   if (HAL_ADC_Init(&hadc) != HAL_OK)
   {
     Error_Handler();
@@ -75,9 +77,9 @@ void MX_ADC_Init(void)
   // {
   //   Error_Handler();
   // }
-  // /* USER CODE BEGIN ADC_Init 2 */
-  //
-  // /* USER CODE END ADC_Init 2 */
+  /* USER CODE BEGIN ADC_Init 2 */
+  
+  /* USER CODE END ADC_Init 2 */
 
 }
 
@@ -135,46 +137,70 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 /* USER CODE BEGIN 1 */
 
 uint16_t read_adc_channel(uint8_t channel) {
-	ADC_ChannelConfTypeDef sConfigPrivate = {0};
-	sConfigPrivate.Rank = ADC_RANK_CHANNEL_NUMBER;
-	sConfigPrivate.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-	if (channel == (uint8_t) 0) { sConfigPrivate.Channel = ADC_CHANNEL_0; }
-	if (channel == (uint8_t) 1) { sConfigPrivate.Channel = ADC_CHANNEL_1; }
-
-	HAL_ADC_ConfigChannel(&hadc, &sConfigPrivate);
-	HAL_ADC_Start(&hadc);
-	HAL_ADC_PollForConversion(&hadc, 1000);
-
-	uint16_t tmp_value = HAL_ADC_GetValue(&hadc);
-	HAL_ADC_Stop(&hadc);
-	return tmp_value;
-}
-
-uint16_t read_adc_channel_0(void) {
 	ADC_ChannelConfTypeDef sConfig = {0};
-	sConfig.Channel = ADC_CHANNEL_0;
-	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	switch(channel) {
+		case 0:
+			sConfig.Channel = ADC_CHANNEL_0;
+			break;
+		case 1:
+			sConfig.Channel = ADC_CHANNEL_1;
+			break;
+		default:
+			Error_Handler();
+            break;
+	}
 	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
 	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
 
 	HAL_ADC_Start(&hadc);
 	HAL_ADC_PollForConversion(&hadc, 1000);
 	uint16_t tmp_value = HAL_ADC_GetValue(&hadc);
 	HAL_ADC_Stop(&hadc);
+
+	sConfig.Rank = ADC_RANK_NONE;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
+
+	return tmp_value;
+}
+
+
+uint16_t read_adc_channel_0(void) {
+	ADC_ChannelConfTypeDef sConfig = {0};
+	sConfig.Channel = ADC_CHANNEL_0;
+	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
+
+	HAL_ADC_Start(&hadc);
+	HAL_ADC_PollForConversion(&hadc, 1000);
+	uint16_t tmp_value = HAL_ADC_GetValue(&hadc);
+	HAL_ADC_Stop(&hadc);
+
+	sConfig.Rank = ADC_RANK_NONE;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
+
 	return tmp_value;
 }
 
 uint16_t read_adc_channel_1(void) {
 	ADC_ChannelConfTypeDef sConfig = {0};
 	sConfig.Channel = ADC_CHANNEL_1;
-	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
 	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
 	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
 
 	HAL_ADC_Start(&hadc);
 	HAL_ADC_PollForConversion(&hadc, 1000);
 	uint16_t tmp_value = HAL_ADC_GetValue(&hadc);
 	HAL_ADC_Stop(&hadc);
+
+	sConfig.Rank = ADC_RANK_NONE;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
+
 	return tmp_value;
 }
 

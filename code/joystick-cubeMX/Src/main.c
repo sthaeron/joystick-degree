@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -65,52 +66,56 @@ void SystemClock_Config(void);
   */
 int main(void)
 {
-	/* USER CODE BEGIN 1 */
+  /* USER CODE BEGIN 1 */
 
-	/* USER CODE END 1 */
+  /* USER CODE END 1 */
 
-	/* MCU Configuration--------------------------------------------------------*/
+  /* MCU Configuration--------------------------------------------------------*/
 
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-	/* USER CODE END Init */
+  /* USER CODE END Init */
 
-	/* Configure the system clock */
-	SystemClock_Config();
+  /* Configure the system clock */
+  SystemClock_Config();
 
-	/* USER CODE BEGIN SysInit */
+  /* USER CODE BEGIN SysInit */
 
-	/* USER CODE END SysInit */
+  /* USER CODE END SysInit */
 
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_ADC_Init();
-	MX_USART1_UART_Init();
-	/* USER CODE BEGIN 2 */
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_ADC_Init();
+  MX_USART1_UART_Init();
+  MX_TIM1_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim1);
+  //HAL_ADCEx_Calibration_Start(&hadc);
+  //HAL_ADC_Start_DMA(&hadc, (uint32_t*)value, sizeof(value[0]));
+  uint16_t x_value;
+  uint16_t y_value;
+  /* USER CODE END 2 */
 
-	/* USER CODE END 2 */
-
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
-
-	uint16_t x_value;
-	uint16_t y_value;
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 
 	while (1) {
 
+		x_value = read_adc_channel_0();
 		y_value = read_adc_channel_1();
 
-		printf("%d, %d\r\n", y_value, y_value);
+		printf("[%ld] x: %d y: %d\r\n", get_time_ms(), x_value, y_value);
 
-		HAL_Delay(10);
+		delay_ms(10);
 
-		/* USER CODE END WHILE */
-		/* USER CODE BEGIN 3 */
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
 	}
-	/* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
 
 /**

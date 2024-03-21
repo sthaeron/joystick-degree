@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
   30:Src/stm32f0xx_it.c **** /* USER CODE END TD */
   31:Src/stm32f0xx_it.c **** 
   32:Src/stm32f0xx_it.c **** /* Private define ------------------------------------------------------------*/
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 2
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 2
 
 
   33:Src/stm32f0xx_it.c **** /* USER CODE BEGIN PD */
@@ -86,7 +86,7 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
   55:Src/stm32f0xx_it.c **** /* USER CODE END 0 */
   56:Src/stm32f0xx_it.c **** 
   57:Src/stm32f0xx_it.c **** /* External variables --------------------------------------------------------*/
-  58:Src/stm32f0xx_it.c **** 
+  58:Src/stm32f0xx_it.c **** extern TIM_HandleTypeDef htim1;
   59:Src/stm32f0xx_it.c **** /* USER CODE BEGIN EV */
   60:Src/stm32f0xx_it.c **** 
   61:Src/stm32f0xx_it.c **** /* USER CODE END EV */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
   75:Src/stm32f0xx_it.c ****   {
   36              		.loc 1 75 10 view .LVU3
   37 0000 FEE7     		b	.L2
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 3
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 3
 
 
   38              		.cfi_endproc
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
  100:Src/stm32f0xx_it.c **** {
   73              		.loc 1 100 1 view -0
   74              		.cfi_startproc
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 4
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 4
 
 
   75              		@ args = 0, pretend = 0, frame = 0
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
  121:Src/stm32f0xx_it.c **** 
  122:Src/stm32f0xx_it.c **** /**
  123:Src/stm32f0xx_it.c ****   * @brief This function handles System tick timer.
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 5
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 5
 
 
  124:Src/stm32f0xx_it.c ****   */
@@ -269,24 +269,89 @@ ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 1
  127 0006 10BD     		pop	{r4, pc}
  128              		.cfi_endproc
  129              	.LFE47:
- 131              		.text
- 132              	.Letext0:
- 133              		.file 2 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s 			page 6
+ 131              		.section	.text.TIM1_BRK_UP_TRG_COM_IRQHandler,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	TIM1_BRK_UP_TRG_COM_IRQHandler
+ 134              		.syntax unified
+ 135              		.code	16
+ 136              		.thumb_func
+ 138              	TIM1_BRK_UP_TRG_COM_IRQHandler:
+ 139              	.LFB48:
+ 135:Src/stm32f0xx_it.c **** 
+ 136:Src/stm32f0xx_it.c **** /******************************************************************************/
+ 137:Src/stm32f0xx_it.c **** /* STM32F0xx Peripheral Interrupt Handlers                                    */
+ 138:Src/stm32f0xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
+ 139:Src/stm32f0xx_it.c **** /* For the available peripheral interrupt handler names,                      */
+ 140:Src/stm32f0xx_it.c **** /* please refer to the startup file (startup_stm32f0xx.s).                    */
+ 141:Src/stm32f0xx_it.c **** /******************************************************************************/
+ 142:Src/stm32f0xx_it.c **** 
+ 143:Src/stm32f0xx_it.c **** /**
+ 144:Src/stm32f0xx_it.c ****   * @brief This function handles TIM1 break, update, trigger and commutation interrupts.
+ 145:Src/stm32f0xx_it.c ****   */
+ 146:Src/stm32f0xx_it.c **** void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
+ 147:Src/stm32f0xx_it.c **** {
+ 140              		.loc 1 147 1 is_stmt 1 view -0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 10B5     		push	{r4, lr}
+ 145              	.LCFI1:
+ 146              		.cfi_def_cfa_offset 8
+ 147              		.cfi_offset 4, -8
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 6
+
+
+ 148              		.cfi_offset 14, -4
+ 148:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_UP_TRG_COM_IRQn 0 */
+ 149:Src/stm32f0xx_it.c **** 
+ 150:Src/stm32f0xx_it.c ****   /* USER CODE END TIM1_BRK_UP_TRG_COM_IRQn 0 */
+ 151:Src/stm32f0xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 149              		.loc 1 151 3 view .LVU16
+ 150 0002 0248     		ldr	r0, .L9
+ 151 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 152              	.LVL1:
+ 152:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_UP_TRG_COM_IRQn 1 */
+ 153:Src/stm32f0xx_it.c **** 
+ 154:Src/stm32f0xx_it.c ****   /* USER CODE END TIM1_BRK_UP_TRG_COM_IRQn 1 */
+ 155:Src/stm32f0xx_it.c **** }
+ 153              		.loc 1 155 1 is_stmt 0 view .LVU17
+ 154              		@ sp needed
+ 155 0008 10BD     		pop	{r4, pc}
+ 156              	.L10:
+ 157 000a C046     		.align	2
+ 158              	.L9:
+ 159 000c 00000000 		.word	htim1
+ 160              		.cfi_endproc
+ 161              	.LFE48:
+ 163              		.text
+ 164              	.Letext0:
+ 165              		.file 2 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 166              		.file 3 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 167              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
+ 168              		.file 5 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 169              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 170              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h"
+ 171              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ARM GAS  /var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f0xx_it.c
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:19     .text.NMI_Handler:00000000 $t
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:25     .text.NMI_Handler:00000000 NMI_Handler
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:42     .text.HardFault_Handler:00000000 $t
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:65     .text.SVC_Handler:00000000 $t
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:71     .text.SVC_Handler:00000000 SVC_Handler
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:85     .text.PendSV_Handler:00000000 $t
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:105    .text.SysTick_Handler:00000000 $t
-/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccCO5eHJ.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:19     .text.NMI_Handler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:25     .text.NMI_Handler:00000000 NMI_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:42     .text.HardFault_Handler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:65     .text.SVC_Handler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:71     .text.SVC_Handler:00000000 SVC_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:85     .text.PendSV_Handler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:105    .text.SysTick_Handler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:132    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 $t
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:138    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 TIM1_BRK_UP_TRG_COM_IRQHandler
+/var/folders/4h/7vm9s8w13t95ghm4btcrtdl80000gn/T//ccLJuSLe.s:159    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
+HAL_TIM_IRQHandler
+htim1

@@ -66,8 +66,6 @@ void Error_Handler(void);
 #define LD4_GPIO_Port GPIOC
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
-#define SWCLK_Pin GPIO_PIN_14
-#define SWCLK_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

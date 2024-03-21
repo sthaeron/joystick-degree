@@ -111,7 +111,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
   }
 }
 
-// Defining auxiliary function used by printf
+/* USER CODE BEGIN 1 */
 int _write(int file, const char *ptr, ssize_t len) {
 	if (file != STDOUT_FILENO && file != STDERR_FILENO) {
 		errno = EIO;
@@ -122,3 +122,4 @@ int _write(int file, const char *ptr, ssize_t len) {
 
 	return len;
 }
+/* USER CODE END 1 */

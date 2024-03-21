@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -62,24 +63,50 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
-int main(void) {
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
 
-	HAL_Init();
-	SystemClock_Config();
-	MX_GPIO_Init();
-	MX_USART1_UART_Init();
+  /* USER CODE END 1 */
 
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART1_UART_Init();
+  MX_TIM1_Init();
+  /* USER CODE BEGIN 2 */
+	HAL_TIM_Base_Start_IT(&htim1);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 	while (1) {
-
-		printf("LED on\r\n");
 		HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, GPIO_PIN_SET);
-		HAL_Delay(1000);
-		printf("LED off\r\n");
+		printf("[%ld] LED ON\r\n", get_time_ms());
+		delay_ms(1000);
 		HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, GPIO_PIN_RESET);
-		HAL_Delay(1000);
+		printf("[%ld] LED OFF\r\n", get_time_ms());
+		delay_ms(1000);
+    /* USER CODE END WHILE */
 
+    /* USER CODE BEGIN 3 */
 	}
-
+  /* USER CODE END 3 */
 }
 
 /**
@@ -156,5 +183,7 @@ void Error_Handler(void)
   */
 void assert_failed(uint8_t *file, uint32_t line)
 {
+  /* USER CODE BEGIN 6 */
+  /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
