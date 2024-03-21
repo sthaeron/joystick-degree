@@ -31,7 +31,6 @@ include $(OPENCM3_DIR)/mk/genlink-config.mk
 OPENCM3_SCRIPT_DIR = $(OPENCM3_DIR)/scripts
 
 #  C flags
-
 TGT_CFLAGS	+= $(OPT) $(CSTD) $(DEBUG)
 TGT_CFLAGS	+= $(ARCH_FLAGS)
 TGT_CFLAGS	+= -Wextra -Wshadow -Wimplicit-function-declaration
@@ -40,7 +39,6 @@ TGT_CFLAGS	+= -fno-common -ffunction-sections -fdata-sections
 TGT_CFLAGS	+= -fno-builtin -fno-exceptions -fno-unwind-tables
 
 # Linker flags
-
 TGT_LDFLAGS		+= --static -nostartfiles
 TGT_LDFLAGS		+= -T$(LDSCRIPT)
 TGT_LDFLAGS		+= $(ARCH_FLAGS) $(DEBUG)
@@ -80,6 +78,7 @@ include $(OPENCM3_DIR)/mk/genlink-rules.mk
 	$(Q)$(OBJCOPY) -O binary $< $@
 
 
+# NY
 # %.elf: $(OBJS) $(LDSCRIPT)
 # 	@printf "  LD\t\t$(*).elf\n"
 # 	$(Q)$(LD) $(TGT_LDFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(*).elf
