@@ -58,6 +58,16 @@ def simple_read(port):
             ser.close()
             break
 
+def test(ser):
+    while (1):
+        ser.reset_input_buffer()
+        ser.readline()
+        line = ser.readline().strip()
+        data = line.split(b',')
+        print(f"x: {float(data[0])}, y: {float(data[1])}")
 
 if __name__ == "__main__":
-    simple_read("/dev/tty.usbserial-A50285BI")
+    port = "/dev/tty.usbserial-A50285BI"
+    ser = serial.Serial(port, baudrate)
+    test(ser)
+    #simple_read("/dev/tty.usbserial-A50285BI")
