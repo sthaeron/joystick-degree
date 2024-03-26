@@ -1,0 +1,3 @@
+# mac folder related
+.DS_Store
+build/
