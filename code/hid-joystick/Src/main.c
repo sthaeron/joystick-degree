@@ -24,7 +24,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32f4xx_hal.h"
+#include "usbd_customhid.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,21 +95,28 @@ int main(void)
   uint16_t y_value;
   uint16_t x_value;
   uint8_t joystick_buffer[3];
-  joystick_buffer[0] = 0;
-  joystick_buffer[1] = 0;
-  joystick_buffer[2] = 0;
+  joystick_buffer[0] = 0x00;
+  joystick_buffer[1] = 0xFF;
+  joystick_buffer[2] = 0xFF;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-	x_value = read_adc_channel_1();
-	y_value = read_adc_channel_2();
+    x_value = read_adc_channel_1();
+    y_value = read_adc_channel_2();
+    
+    joystick_buffer[0] = (uint8_t)((x_value >> 4)&(0xFF));
+    joystick_buffer[1] = (uint8_t)((x_value << 4)|(y_value >> 8));
+    joystick_buffer[2] = (uint8_t)((y_value)&(0xFF));
+    //joystick_buffer[0] = x_value;
+    //joystick_buffer[1] = y_value;
 
-	joystick_buffer[0] = (x_value >> 8);
-	joystick_buffer[1] = (y_value >> 8);
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, joystick_buffer, 2);
+    HAL_Delay(100);
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
