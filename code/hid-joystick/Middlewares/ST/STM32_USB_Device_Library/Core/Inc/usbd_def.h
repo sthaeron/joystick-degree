@@ -91,7 +91,7 @@ extern "C" {
 #endif /* USBD_CLASS_USER_STRING_DESC */
 
 #define  USB_LEN_DEV_QUALIFIER_DESC                     0x0AU
-#define  USB_LEN_DEV_DESC                               0x2CU
+#define  USB_LEN_DEV_DESC                               0x12U
 #define  USB_LEN_CFG_DESC                               0x09U
 #define  USB_LEN_IF_DESC                                0x09U
 #define  USB_LEN_EP_DESC                                0x07U

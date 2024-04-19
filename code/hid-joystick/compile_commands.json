@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -34,7 +34,7 @@
   "file": "Src/main.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -68,7 +68,7 @@
   "file": "Src/gpio.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -102,7 +102,7 @@
   "file": "Src/usb_device.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -136,7 +136,7 @@
   "file": "Src/usbd_conf.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -170,7 +170,7 @@
   "file": "Src/usbd_desc.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -204,7 +204,7 @@
   "file": "Src/usbd_custom_hid_if.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -238,7 +238,7 @@
   "file": "Src/stm32f4xx_it.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -272,7 +272,7 @@
   "file": "Src/stm32f4xx_hal_msp.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -306,7 +306,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -340,7 +340,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -374,7 +374,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -408,7 +408,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -442,7 +442,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -476,7 +476,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -510,7 +510,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -544,7 +544,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -578,7 +578,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -612,7 +612,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -646,7 +646,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -680,7 +680,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -714,7 +714,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -748,7 +748,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -782,7 +782,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -816,7 +816,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -850,7 +850,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -884,7 +884,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -918,7 +918,7 @@
   "file": "Src/system_stm32f4xx.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -952,7 +952,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -986,7 +986,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1020,7 +1020,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1054,7 +1054,143 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Src/usbd_customhid.c"
  },
  {
-  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-joystick",
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/adc.d",
+   "-Wa,-a,-ad,-alms=build/adc.lst",
+   "Src/adc.c",
+   "-o",
+   "build/adc.o"
+  ],
+  "file": "Src/adc.c"
+ },
+ {
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/stm32f4xx_hal_adc.d",
+   "-Wa,-a,-ad,-alms=build/stm32f4xx_hal_adc.lst",
+   "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c",
+   "-o",
+   "build/stm32f4xx_hal_adc.o"
+  ],
+  "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c"
+ },
+ {
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/stm32f4xx_hal_adc_ex.d",
+   "-Wa,-a,-ad,-alms=build/stm32f4xx_hal_adc_ex.lst",
+   "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c",
+   "-o",
+   "build/stm32f4xx_hal_adc_ex.o"
+  ],
+  "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c"
+ },
+ {
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/stm32f4xx_ll_adc.d",
+   "-Wa,-a,-ad,-alms=build/stm32f4xx_ll_adc.lst",
+   "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c",
+   "-o",
+   "build/stm32f4xx_ll_adc.o"
+  ],
+  "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c"
+ },
+ {
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-joystick",
   "arguments": [
    "arm-none-eabi-gcc",
    "-x",

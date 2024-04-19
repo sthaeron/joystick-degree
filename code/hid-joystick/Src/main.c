@@ -18,11 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32f4xx_hal.h"
+#include "adc.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "usbd_customhid.h"
-#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -90,7 +88,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
+  uint16_t y_value;
+  uint16_t x_value;
   uint8_t joystick_buffer[3];
   joystick_buffer[0] = 0;
   joystick_buffer[1] = 0;
@@ -102,10 +103,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    joystick_buffer[0]++;
-    joystick_buffer[2]++;
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, joystick_buffer, 3);
-    HAL_Delay(1000);
+	x_value = read_adc_channel_1();
+	y_value = read_adc_channel_2();
+
+	joystick_buffer[0] = (x_value >> 8);
+	joystick_buffer[1] = (y_value >> 8);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
