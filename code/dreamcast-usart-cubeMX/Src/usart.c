@@ -21,7 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-
+extern ssize_t _write(int file, const char *ptr, ssize_t len);
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -112,5 +112,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+int _write(int file, const char *ptr, ssize_t len) {
+	if (file != STDOUT_FILENO && file != STDERR_FILENO) {
+		errno = EIO;
+		return -1;
+	}
 
+	HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
+
+	return len;
+}
 /* USER CODE END 1 */

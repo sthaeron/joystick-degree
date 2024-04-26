@@ -90,13 +90,21 @@ int main(void)
   MX_ADC_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  uint16_t x_value;
+  uint16_t y_value;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	
+	x_value = read_adc_channel(0);
+	y_value = read_adc_channel(1);
+
+	printf("x: %d y: %d\r\n", x_value, y_value);
+
+	HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

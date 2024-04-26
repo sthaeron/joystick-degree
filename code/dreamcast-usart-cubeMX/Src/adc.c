@@ -34,7 +34,7 @@ void MX_ADC_Init(void)
 
   /* USER CODE END ADC_Init 0 */
 
-  ADC_ChannelConfTypeDef sConfig = {0};
+  //ADC_ChannelConfTypeDef sConfig = {0};
 
   /* USER CODE BEGIN ADC_Init 1 */
 
@@ -61,23 +61,23 @@ void MX_ADC_Init(void)
     Error_Handler();
   }
 
-  /** Configure for the selected ADC regular channel to be converted.
-  */
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure for the selected ADC regular channel to be converted.
-  */
-  sConfig.Channel = ADC_CHANNEL_1;
-  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  // /** Configure for the selected ADC regular channel to be converted.
+  // */
+  // sConfig.Channel = ADC_CHANNEL_0;
+  // sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+  // sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  // if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  // {
+  //   Error_Handler();
+  // }
+  //
+  // /** Configure for the selected ADC regular channel to be converted.
+  // */
+  // sConfig.Channel = ADC_CHANNEL_1;
+  // if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  // {
+  //   Error_Handler();
+  // }
   /* USER CODE BEGIN ADC_Init 2 */
 
   /* USER CODE END ADC_Init 2 */
@@ -136,5 +136,31 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 }
 
 /* USER CODE BEGIN 1 */
+uint16_t read_adc_channel(uint8_t channel) {
+	ADC_ChannelConfTypeDef sConfig = {0};
+	switch(channel) {
+		case 0:
+			sConfig.Channel = ADC_CHANNEL_0;
+			break;
+		case 1:
+			sConfig.Channel = ADC_CHANNEL_1;
+			break;
+		default:
+			Error_Handler();
+            break;
+	}
+	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
 
+	HAL_ADC_Start(&hadc);
+	HAL_ADC_PollForConversion(&hadc, 1000);
+	uint16_t tmp_value = HAL_ADC_GetValue(&hadc);
+	HAL_ADC_Stop(&hadc);
+
+	sConfig.Rank = ADC_RANK_NONE;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK) Error_Handler();
+
+	return tmp_value;
+}
 /* USER CODE END 1 */
