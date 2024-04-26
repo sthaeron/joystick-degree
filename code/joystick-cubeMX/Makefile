@@ -75,6 +75,7 @@ ASMM_SOURCES =
 #######################################
 # binaries
 #######################################
+#GCC_PATH = /usr/local/bin
 PREFIX = arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
@@ -143,6 +144,7 @@ endif
 
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
+#CFLAGS += --query-driver=$(GCC_PATH)/$(PREFIX)gcc
 
 
 #######################################

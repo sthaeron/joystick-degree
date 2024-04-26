@@ -31,7 +31,8 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
+
 
 /** @addtogroup STM32F0xx_System_Includes
   * @{
