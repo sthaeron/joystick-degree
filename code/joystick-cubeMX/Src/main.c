@@ -107,8 +107,13 @@ int main(void) {
     x_value = read_adc_channel_0();
     y_value = read_adc_channel_1();
 
+<<<<<<< HEAD
     // printf("[%ld] x: %d y: %d\r\n", get_time_ms(), x_value, y_value);
     printf("%ld,%d,%d\r\n", get_time_ms(), x_value, y_value);
+=======
+		//printf("[%ld] x: %d y: %d\r\n", get_time_ms(), x_value, y_value);
+		printf("%d,%d,%d\r\n", get_time_ms(), x_value, y_value);
+>>>>>>> 124f8911475a083029343287b68aae57c3739738
 
     delay_ms(10);
 
