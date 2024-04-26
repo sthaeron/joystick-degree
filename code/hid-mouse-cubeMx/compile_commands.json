@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -34,7 +34,41 @@
   "file": "Src/main.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/accelerometer.d",
+   "-Wa,-a,-ad,-alms=build/accelerometer.lst",
+   "Src/accelerometer.c",
+   "-o",
+   "build/accelerometer.o"
+  ],
+  "file": "Src/accelerometer.c"
+ },
+ {
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -68,7 +102,7 @@
   "file": "Src/gpio.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -102,7 +136,7 @@
   "file": "Src/usb_device.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -136,7 +170,7 @@
   "file": "Src/usbd_conf.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -170,7 +204,7 @@
   "file": "Src/usbd_desc.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -204,7 +238,7 @@
   "file": "Src/usbd_custom_hid_if.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -238,7 +272,7 @@
   "file": "Src/stm32f4xx_it.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -272,7 +306,7 @@
   "file": "Src/stm32f4xx_hal_msp.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -306,7 +340,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -340,7 +374,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -374,7 +408,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -408,7 +442,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -442,7 +476,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -476,7 +510,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -510,7 +544,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -544,7 +578,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -578,7 +612,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -612,7 +646,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -646,7 +680,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -680,7 +714,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -714,7 +748,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -748,7 +782,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -782,7 +816,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -816,7 +850,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -850,7 +884,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -884,7 +918,7 @@
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -918,7 +952,7 @@
   "file": "Src/system_stm32f4xx.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -952,7 +986,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -986,7 +1020,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1020,7 +1054,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1054,42 +1088,7 @@
   "file": "Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Src/usbd_customhid.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
-  "arguments": [
-   "arm-none-eabi-gcc",
-   "-x",
-   "assembler-with-cpp",
-   "-c",
-   "-mcpu=cortex-m4",
-   "-mthumb",
-   "-mfpu=fpv4-sp-d16",
-   "-mfloat-abi=hard",
-   "-DUSE_HAL_DRIVER",
-   "-DSTM32F401xC",
-   "-IInc",
-   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
-   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
-   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
-   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
-   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
-   "-IDrivers/CMSIS/Include",
-   "-Og",
-   "-Wall",
-   "-fdata-sections",
-   "-ffunction-sections",
-   "-g",
-   "-gdwarf-2",
-   "-MMD",
-   "-MP",
-   "-MFbuild/startup_stm32f401xc.d",
-   "startup_stm32f401xc.s",
-   "-o",
-   "build/startup_stm32f401xc.o"
-  ],
-  "file": "startup_stm32f401xc.s"
- },
- {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1123,7 +1122,7 @@
   "file": "Src/spi.c"
  },
  {
-  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/hid-mouse-cubeMx",
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
   "arguments": [
    "arm-none-eabi-gcc",
    "-c",
@@ -1155,5 +1154,40 @@
    "build/stm32f4xx_hal_spi.o"
   ],
   "file": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c"
+ },
+ {
+  "directory": "/home/dapper_penguin/Documents/IL142X/code/hid-mouse-cubeMx",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-x",
+   "assembler-with-cpp",
+   "-c",
+   "-mcpu=cortex-m4",
+   "-mthumb",
+   "-mfpu=fpv4-sp-d16",
+   "-mfloat-abi=hard",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F401xC",
+   "-IInc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc",
+   "-IMiddlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+   "-IDrivers/CMSIS/Device/ST/STM32F4xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/startup_stm32f401xc.d",
+   "startup_stm32f401xc.s",
+   "-o",
+   "build/startup_stm32f401xc.o"
+  ],
+  "file": "startup_stm32f401xc.s"
  }
 ]
