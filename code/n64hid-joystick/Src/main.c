@@ -18,16 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32f4xx_hal_gpio.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "usbd_customhid.h"
-#include "usbd_def.h"
-#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usbd_customhid.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,8 +34,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-int8_t n64_get_x();
-int8_t n64_get_y();
+uint8_t n64_get_x();
+uint8_t n64_get_y();
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -93,7 +90,9 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  int8_t joystick_buffer[2];
+  uint8_t joystick_buffer[2];
+  joystick_buffer[0] = 0;
+  joystick_buffer[1] = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,9 +100,9 @@ int main(void)
   while (1)
   {
     joystick_buffer[0] = n64_get_x();
-    joystick_buffer[1] = 0;
-
+    joystick_buffer[1] = n64_get_y(); 
     USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, joystick_buffer, 2);
+    HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -161,9 +160,9 @@ void SystemClock_Config(void)
 * @brief This function gets the value of the binary counter respoinsible for keeping track of the x-axis of a n64 joystick
 * @retval X-axis value, signed 8-bit int
 */
-int8_t n64_get_x()
+uint8_t n64_get_x()
 {
-  int8_t returval = 0;
+  uint8_t returval = 0;
   returval = returval | (HAL_GPIO_ReadPin(xb0_GPIO_Port, xb0_Pin));
   returval = returval | (HAL_GPIO_ReadPin(xb1_GPIO_Port, xb1_Pin)<<1);
   returval = returval | (HAL_GPIO_ReadPin(xb2_GPIO_Port, xb2_Pin)<<2);
@@ -171,7 +170,21 @@ int8_t n64_get_x()
   returval = returval | (HAL_GPIO_ReadPin(xb4_GPIO_Port, xb4_Pin)<<4);
   returval = returval | (HAL_GPIO_ReadPin(xb5_GPIO_Port, xb5_Pin)<<5);
   returval = returval | (HAL_GPIO_ReadPin(xb6_GPIO_Port, xb6_Pin)<<6);
-  returval = returval | (HAL_GPIO_ReadPin(xb7_GPIO_Port, xb7_Pin)<<7);
+  returval = returval | ((HAL_GPIO_ReadPin(xb7_GPIO_Port, xb7_Pin)^0x1)<<7);
+  return returval;
+}
+
+uint8_t n64_get_y()
+{
+  uint8_t returval = 0;
+  returval = returval | (HAL_GPIO_ReadPin(yb0_GPIO_Port, yb0_Pin));
+  returval = returval | (HAL_GPIO_ReadPin(yb1_GPIO_Port, yb1_Pin)<<1);
+  returval = returval | (HAL_GPIO_ReadPin(yb2_GPIO_Port, yb2_Pin)<<2);
+  returval = returval | (HAL_GPIO_ReadPin(yb3_GPIO_Port, yb3_Pin)<<3);
+  returval = returval | (HAL_GPIO_ReadPin(yb4_GPIO_Port, yb4_Pin)<<4);
+  returval = returval | (HAL_GPIO_ReadPin(yb5_GPIO_Port, yb5_Pin)<<5);
+  returval = returval | (HAL_GPIO_ReadPin(yb6_GPIO_Port, yb6_Pin)<<6);
+  returval = returval | ((HAL_GPIO_ReadPin(yb7_GPIO_Port, yb7_Pin)^0x1)<<7);
   return returval;
 }
 /* USER CODE END 4 */

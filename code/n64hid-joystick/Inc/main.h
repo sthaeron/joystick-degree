@@ -57,22 +57,38 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define xb2_Pin GPIO_PIN_2
-#define xb2_GPIO_Port GPIOE
-#define xb3_Pin GPIO_PIN_3
-#define xb3_GPIO_Port GPIOE
-#define xb4_Pin GPIO_PIN_4
-#define xb4_GPIO_Port GPIOE
-#define xb5_Pin GPIO_PIN_5
-#define xb5_GPIO_Port GPIOE
-#define xb6_Pin GPIO_PIN_6
-#define xb6_GPIO_Port GPIOE
-#define xb7_Pin GPIO_PIN_13
-#define xb7_GPIO_Port GPIOC
 #define xb0_Pin GPIO_PIN_0
-#define xb0_GPIO_Port GPIOE
+#define xb0_GPIO_Port GPIOA
 #define xb1_Pin GPIO_PIN_1
-#define xb1_GPIO_Port GPIOE
+#define xb1_GPIO_Port GPIOA
+#define xb2_Pin GPIO_PIN_2
+#define xb2_GPIO_Port GPIOA
+#define xb3_Pin GPIO_PIN_3
+#define xb3_GPIO_Port GPIOA
+#define xb4_Pin GPIO_PIN_4
+#define xb4_GPIO_Port GPIOA
+#define xb5_Pin GPIO_PIN_5
+#define xb5_GPIO_Port GPIOA
+#define xb6_Pin GPIO_PIN_6
+#define xb6_GPIO_Port GPIOA
+#define xb7_Pin GPIO_PIN_7
+#define xb7_GPIO_Port GPIOA
+#define yb0_Pin GPIO_PIN_8
+#define yb0_GPIO_Port GPIOD
+#define yb1_Pin GPIO_PIN_9
+#define yb1_GPIO_Port GPIOD
+#define yb2_Pin GPIO_PIN_10
+#define yb2_GPIO_Port GPIOD
+#define yb3_Pin GPIO_PIN_11
+#define yb3_GPIO_Port GPIOD
+#define yb4_Pin GPIO_PIN_12
+#define yb4_GPIO_Port GPIOD
+#define yb5_Pin GPIO_PIN_13
+#define yb5_GPIO_Port GPIOD
+#define yb6_Pin GPIO_PIN_14
+#define yb6_GPIO_Port GPIOD
+#define yb7_Pin GPIO_PIN_15
+#define yb7_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 

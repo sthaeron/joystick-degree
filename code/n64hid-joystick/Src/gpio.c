@@ -45,24 +45,25 @@ void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
-  /*Configure GPIO pins : PEPin PEPin PEPin PEPin
-                           PEPin PEPin PEPin */
-  GPIO_InitStruct.Pin = xb2_Pin|xb3_Pin|xb4_Pin|xb5_Pin
-                          |xb6_Pin|xb0_Pin|xb1_Pin;
+  /*Configure GPIO pins : PAPin PAPin PAPin PAPin
+                           PAPin PAPin PAPin PAPin */
+  GPIO_InitStruct.Pin = xb0_Pin|xb1_Pin|xb2_Pin|xb3_Pin
+                          |xb4_Pin|xb5_Pin|xb6_Pin|xb7_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = xb7_Pin;
+  /*Configure GPIO pins : PDPin PDPin PDPin PDPin
+                           PDPin PDPin PDPin PDPin */
+  GPIO_InitStruct.Pin = yb0_Pin|yb1_Pin|yb2_Pin|yb3_Pin
+                          |yb4_Pin|yb5_Pin|yb6_Pin|yb7_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(xb7_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
 }
 
