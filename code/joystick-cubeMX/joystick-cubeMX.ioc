@@ -1,11 +1,15 @@
 #MicroXplorer Configuration settings - do not modify
+ADC.AWD1HighThreshold=2873
+ADC.AWD1LowThreshold=1226
 ADC.ClockPrescaler=ADC_CLOCK_ASYNC_DIV1
-ADC.ContinuousConvMode=DISABLE
+ADC.ContinuousConvMode=ENABLE
 ADC.DMAContinuousRequests=DISABLE
+ADC.EnableAnalogWatchDog=true
 ADC.ExternalTrigConv=ADC_SOFTWARE_START
-ADC.IPParameters=ContinuousConvMode,ClockPrescaler,DMAContinuousRequests,Overrun,SamplingTime,ExternalTrigConv
+ADC.IPParameters=ContinuousConvMode,ClockPrescaler,DMAContinuousRequests,Overrun,SamplingTime,ExternalTrigConv,EnableAnalogWatchDog,WatchdogMode,AWD1LowThreshold,AWD1HighThreshold
 ADC.Overrun=ADC_OVR_DATA_OVERWRITTEN
-ADC.SamplingTime=ADC_SAMPLETIME_1CYCLE_5
+ADC.SamplingTime=ADC_SAMPLETIME_239CYCLES_5
+ADC.WatchdogMode=ADC_ANALOGWATCHDOG_ALL_REG
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=

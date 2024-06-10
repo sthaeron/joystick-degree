@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -89,7 +90,9 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC_Init();
   MX_USART1_UART_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim1);
   uint16_t x_value;
   uint16_t y_value;
   /* USER CODE END 2 */
@@ -102,9 +105,9 @@ int main(void)
 	x_value = read_adc_channel(0);
 	y_value = read_adc_channel(1);
 
-	printf("x: %d y: %d\r\n", x_value, y_value);
+	printf("%d,%d,%d\r\n", get_time_ms(), x_value, y_value);
 
-	HAL_Delay(100);
+	delay_ms(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
