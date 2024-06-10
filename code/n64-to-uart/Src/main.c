@@ -18,10 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+//#include "newlib/sys/types.h"
+#include "stm32f0xx_hal.h"
 #include "stm32f0xx_hal_uart.h"
 #include "usart.h"
 #include "gpio.h"
 #include <stdint.h>
+#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -47,7 +50,6 @@
 
 /* USER CODE BEGIN PV */
 void read_n64_joystick(uint8_t* x_axis, uint8_t* y_axis);
-void write_bits(uint8_t x_axis, uint8_t y_axis);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,6 +101,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    uint8_t x = 0;
+    uint8_t y = 0;
+    read_n64_joystick(&x, &y);
+    printf("X axis: %d, Y axis %d \r\n", 15, 124);
+    HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -160,26 +167,35 @@ void SystemClock_Config(void)
  */
 void read_n64_joystick(uint8_t* x_axis, uint8_t* y_axis)
 {
-  const uint8_t get_button_byte = 0x01;
-  uint8_t receiveive_buffer[33];
+  const uint16_t get_button_byte[] = {0x0100, 0x0100, 0x0100, 0x0100, 0x0100, 0x0100, 0x0100, 0x01fc, 0x01e0, 0x0100};
+  uint8_t receiveive_buffer[60] = {0};
   HAL_HalfDuplex_EnableTransmitter(&huart1);
-  HAL_UART_Transmit(&huart1, &get_button_byte, 1, 1000);
+  HAL_UART_Transmit(&huart1, (uint8_t*)get_button_byte, 9, 1000);
   huart1.Instance->RDR = (uint16_t)(0x01e0 & 0x01FFU);
   while (!LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_9));
   HAL_HalfDuplex_EnableReceiver(&huart1);
-  HAL_UART_Receive(&huart1, receiveive_buffer, 32, 10000);
+  HAL_UART_Receive(&huart1, receiveive_buffer, 60, 10);
   uint8_t x_axis_temp = 0;
+  for (int i = 0; i < 60; i++)
+  {
+    printf("Recieve Buffer %d, is: %d.  ", i, receiveive_buffer[i]);
+    if (!(i%3))
+    {
+      printf("\r\n");
+    }
+  }
   for(int i = 0; i < 8; i++)
   {
-    uint8_t temp = ((receiveive_buffer[23-i] | 0x10) >> 4);
+    uint8_t temp = ((receiveive_buffer[42-(i*2)] & 0x10) >> 4);
     x_axis_temp = x_axis_temp | (temp << i);
   }
   uint8_t y_axis_temp = 0;
   for(int i = 0; i < 8; i++)
   {
-    uint8_t temp = ((receiveive_buffer[31-i] | 0x10) >> 4);
+    uint8_t temp = ((receiveive_buffer[58-(i*2)] & 0x10) >> 4);
     y_axis_temp = y_axis_temp | (temp << i);
   }
+  printf("X axis: %d, Y axis %d \r\n", x_axis_temp, y_axis_temp);
   *x_axis = x_axis_temp;
   *y_axis = y_axis_temp;
   return;
