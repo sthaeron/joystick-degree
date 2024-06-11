@@ -1,3 +1,5 @@
 # mac folder related
 .DS_Store
+.clangd
+.cache/
 build/
