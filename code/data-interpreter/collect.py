@@ -1,13 +1,17 @@
 import serial
 import time
-filename = input('Please insert an output file name.')
+filename = input('Please insert an output file name: \n')
 port = '/dev/ttyUSB0'
 baudrate = 115200
 ser = serial.Serial(port, baudrate)
-print(ser.name)
+print("portname:", ser.port)
 outfile = open(filename, "w")
 end_time = time.time() + 15
-while time.time() < end_time:
-    outfile.write(ser.readline().decode("utf-8"))
+while 1:
+    in_line = ser.readline().decode("utf-8")
+    if in_line == "End of Transmission\r\n":
+        print("reached break")
+        break
+    outfile.write(in_line)
 outfile.close()
 print("Jolly good, all done!")
