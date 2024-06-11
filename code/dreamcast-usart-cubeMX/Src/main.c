@@ -93,8 +93,19 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1);
-  uint16_t x_value;
-  uint16_t y_value;
+  int16_t x_value;
+  int16_t y_value;
+
+  float x_standard_value = 0.00;
+  float y_standard_value = 0.00;
+
+  int16_t x_max_input = 0;
+  int16_t x_min_input = 4095;
+  int16_t y_max_input = 0;
+  int16_t y_min_input = 4095;
+  int16_t max_output = 1;
+  int16_t min_output = -1;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,7 +116,23 @@ int main(void)
 	x_value = read_adc_channel(0);
 	y_value = read_adc_channel(1);
 
-	printf("%d,%d,%d\r\n", get_time_ms(), x_value, y_value);
+	if (x_value > x_max_input) {
+		x_max_input = x_value;
+	}
+	if (x_value < x_min_input) {
+		x_min_input = x_value;
+	}
+	if (y_value > y_max_input) {
+		y_max_input = y_value;
+	}
+	if (y_value < y_min_input) {
+		y_min_input = y_value;
+	}
+
+	x_standard_value = (((float) x_value - x_min_input) * (max_output - min_output))/(x_max_input - x_min_input) + min_output;
+	y_standard_value = (((float) y_value - y_min_input) * (max_output - min_output))/(y_max_input - y_min_input) + min_output;
+
+	printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
 
 	delay_ms(10);
     /* USER CODE END WHILE */
