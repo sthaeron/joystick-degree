@@ -58,9 +58,11 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PDPin PDPin PDPin PDPin
-                           PDPin PDPin PDPin PDPin */
+                           PDPin PDPin PDPin PDPin
+                           PDPin */
   GPIO_InitStruct.Pin = yb0_Pin|yb1_Pin|yb2_Pin|yb3_Pin
-                          |yb4_Pin|yb5_Pin|yb6_Pin|yb7_Pin;
+                          |yb4_Pin|yb5_Pin|yb6_Pin|yb7_Pin
+                          |EOF_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);

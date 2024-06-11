@@ -18,12 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usb_device.h"
+#include "stm32f4xx_hal_gpio.h"
+#include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_customhid.h"
+#include <math.h>
 #include <stdint.h>
 /* USER CODE END Includes */
 
@@ -46,7 +48,6 @@ uint8_t n64_get_y();
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern USBD_HandleTypeDef hUsbDeviceFS;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,21 +89,45 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USB_DEVICE_Init();
+  MX_TIM1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t joystick_buffer[2];
-  joystick_buffer[0] = 0;
-  joystick_buffer[1] = 0;
+  HAL_TIM_Base_Start_IT(&htim1);
+  uint8_t min_x = 0x70;
+  uint8_t max_x = 0x90;
+  uint8_t min_y = 0x70;
+  uint8_t max_y = 0x90;
+
+  uint8_t x_val = 0x80;
+  uint8_t y_val = 0x80;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    joystick_buffer[0] = n64_get_x();
-    joystick_buffer[1] = n64_get_y(); 
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, joystick_buffer, 2);
-    HAL_Delay(100);
+    x_val = n64_get_x();
+    y_val = n64_get_y(); 
+    if (x_val < min_x) {
+      min_x = x_val;
+    }
+    if (x_val > max_x) {
+      max_x = x_val;
+    }
+    if (y_val < min_y) {
+      min_y = y_val;
+    }
+    if (y_val > max_y) {
+      max_y = y_val;
+    }
+    float out_x = (float) ((float)((x_val - min_x) * (2)) / (max_x - min_x)) - (float)1;
+    float out_y = (float) ((float)((y_val - min_y) * (2)) / (max_y - min_y)) - (float)1;
+    if(HAL_GPIO_ReadPin(EOF_GPIO_Port, EOF_Pin) == GPIO_PIN_SET)
+      printf("End of Transmission\r\n");
+    else 
+      printf("%d,%f,%f, x val = %d, y val = %d\r\n", get_time_ms(), out_x, out_y, x_val, y_val);
+    delay_ms(10);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -127,13 +152,14 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 168;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 84;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {

@@ -1,7 +1,7 @@
 # Auxiliary Makefile for stm32f0discovery compilation
 
 # Parameters
-SERIAL = tty.usbserial-A50285BI
+SERIAL = ttyUSB0
 BAUDRATE = 115200
 
 # Commands

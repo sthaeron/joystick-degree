@@ -31,7 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <errno.h>
+#include <unistd.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -89,6 +91,8 @@ void Error_Handler(void);
 #define yb6_GPIO_Port GPIOD
 #define yb7_Pin GPIO_PIN_15
 #define yb7_GPIO_Port GPIOD
+#define EOF_Pin GPIO_PIN_0
+#define EOF_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 
