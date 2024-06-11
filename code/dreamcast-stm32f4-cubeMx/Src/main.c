@@ -131,8 +131,12 @@ int main(void)
 
 	x_standard_value = (((float) x_value - x_min_input) * (max_output - min_output))/(x_max_input - x_min_input) + min_output;
 	y_standard_value = (((float) y_value - y_min_input) * (max_output - min_output))/(y_max_input - y_min_input) + min_output;
-
-	printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
+	
+	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET)
+		printf("End of Transmission\r\n");
+	else
+		printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
+	
 
 	delay_ms(10);
 
