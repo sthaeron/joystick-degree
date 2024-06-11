@@ -809,5 +809,35 @@
    "build/startup_stm32f051x8.o"
   ],
   "file": "startup_stm32f051x8.s"
+ },
+ {
+  "directory": "/Users/st/Grimoire/KTH/degree-ii143x/code/dreamcast-usart-cubeMX",
+  "arguments": [
+   "arm-none-eabi-gcc",
+   "-c",
+   "-mcpu=cortex-m0",
+   "-mthumb",
+   "-DUSE_HAL_DRIVER",
+   "-DSTM32F051x8",
+   "-IInc",
+   "-IDrivers/STM32F0xx_HAL_Driver/Inc",
+   "-IDrivers/STM32F0xx_HAL_Driver/Inc/Legacy",
+   "-IDrivers/CMSIS/Device/ST/STM32F0xx/Include",
+   "-IDrivers/CMSIS/Include",
+   "-Og",
+   "-Wall",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-g",
+   "-gdwarf-2",
+   "-MMD",
+   "-MP",
+   "-MFbuild/tim.d",
+   "-Wa,-a,-ad,-alms=build/tim.lst",
+   "Src/tim.c",
+   "-o",
+   "build/tim.o"
+  ],
+  "file": "Src/tim.c"
  }
 ]
