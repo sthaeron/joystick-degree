@@ -21,7 +21,7 @@
 #include "tim.h"
 
 /* USER CODE BEGIN 0 */
-
+volatile uint32_t time_ms = 0;
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim1;
@@ -108,5 +108,18 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if (htim->Instance==TIM1) {
+		time_ms++;
+	}
+}
 
+uint32_t get_time_ms(void) {
+	return time_ms;
+}
+
+void delay_ms(uint32_t delay_time) {
+	const uint32_t wait_time = time_ms + delay_time;
+	while (time_ms < wait_time);
+}
 /* USER CODE END 1 */

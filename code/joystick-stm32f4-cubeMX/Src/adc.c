@@ -59,23 +59,23 @@ void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-  */
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-  */
-  sConfig.Rank = 2;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  // /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  // */
+  // sConfig.Channel = ADC_CHANNEL_0;
+  // sConfig.Rank = 1;
+  // sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  // if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  // {
+  //   Error_Handler();
+  // }
+  //
+  // /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  // */
+  // sConfig.Rank = 2;
+  // if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  // {
+  //   Error_Handler();
+  // }
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
@@ -134,5 +134,32 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 }
 
 /* USER CODE BEGIN 1 */
+uint16_t read_adc_channel(uint8_t channel) {
+	ADC_ChannelConfTypeDef sConfig = {0};
+	switch(channel) {
+		case 0:
+			sConfig.Channel = ADC_CHANNEL_0;
+			sConfig.Rank = 1;
+			break;
+		case 1:
+			sConfig.Channel = ADC_CHANNEL_0;
+			sConfig.Rank = 2;
+			break;
+		default:
+			Error_Handler();
+            break;
+	}
 
+	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) Error_Handler();
+
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, 1000);
+	uint16_t tmp_value = HAL_ADC_GetValue(&hadc1);
+	HAL_ADC_Stop(&hadc1);
+
+	return tmp_value;
+
+}
 /* USER CODE END 1 */

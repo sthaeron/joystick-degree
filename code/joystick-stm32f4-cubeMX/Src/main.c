@@ -92,13 +92,37 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim1);
+  int16_t x_value;
+  int16_t y_value;
 
+  float x_standard_value = 0.00;
+  float y_standard_value = 0.00;
+
+  int16_t x_max_input = 0;
+  int16_t x_min_input = 4095;
+  int16_t y_max_input = 0;
+  int16_t y_min_input = 4095;
+  int16_t max_output = 1;
+  int16_t min_output = -1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	
+	x_value = read_adc_channel(0);
+	y_value = read_adc_channel(1);
+
+	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET) {
+		printf("End of Transmission\r\n");
+	} else {
+		printf("%d,%d,%d\r\n", get_time_ms(), x_value, y_value);
+	}
+
+	delay_ms(10);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -182,8 +206,6 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

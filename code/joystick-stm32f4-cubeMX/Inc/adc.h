@@ -41,7 +41,7 @@ extern ADC_HandleTypeDef hadc1;
 void MX_ADC1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+uint16_t read_adc_channel(uint8_t channel);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

@@ -41,7 +41,9 @@ extern TIM_HandleTypeDef htim1;
 void MX_TIM1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+uint32_t get_time_ms(void);
+void delay_ms(uint32_t delay_time);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
