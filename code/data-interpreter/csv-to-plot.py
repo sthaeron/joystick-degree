@@ -1,10 +1,9 @@
 #! /usr/local/bin/env python3
-import matplotlib.pyplot as plt 
-import csv 
+import matplotlib.pyplot as plt
+import csv
 import sys
 
-controller = sys.argv[1]
-file = sys.argv[2]
+file = sys.argv[1]
 
 time = []
 x = []
@@ -21,11 +20,11 @@ with open(file, "r") as csvfile:
 fig, (xPlot, yPlot) = plt.subplots(2, 1, sharex=True)
 
 xPlot.plot(time, x)
-xPlot.set_xlabel("Time (ms)") 
-xPlot.set_ylabel("Y ADC Value")
+xPlot.set_xlabel("Time (ms)")
+xPlot.set_ylabel("X-Axis Value")
 
 yPlot.plot(time, y)
-yPlot.set_xlabel("Time (ms)") 
-yPlot.set_ylabel("Y ADC Value")
+yPlot.set_xlabel("Time (ms)")
+yPlot.set_ylabel("Y-Axis Value")
 
 plt.show()
