@@ -115,10 +115,26 @@ int main(void)
 	x_value = read_adc_channel(0);
 	y_value = read_adc_channel(1);
 
+	if (x_value > x_max_input) {
+		x_max_input = x_value;
+	}
+	if (x_value < x_min_input) {
+		x_min_input = x_value;
+	}
+	if (y_value > y_max_input) {
+		y_max_input = y_value;
+	}
+	if (y_value < y_min_input) {
+		y_min_input = y_value;
+	}
+
+	x_standard_value = (((float) x_value - x_min_input) * (max_output - min_output))/(x_max_input - x_min_input) + min_output;
+	y_standard_value = (((float) y_value - y_min_input) * (max_output - min_output))/(y_max_input - y_min_input) + min_output;
+
 	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET) {
 		printf("End of Transmission\r\n");
 	} else {
-		printf("%d,%d,%d\r\n", get_time_ms(), x_value, y_value);
+		printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
 	}
 
 	delay_ms(10);
