@@ -9,14 +9,18 @@ time = []
 x = []
 y = []
 
-start = 0
+start = -1
 end = 0
 
 with open(file, "r") as csvfile:
-    plots = csv.reader(csvfile, delimiter = ",")
+    plots = csv.reader(csvfile, delimiter=",")
 
     for row in plots:
-        if start == 0: start = int(row[0])
+        if start == -1:
+            start = 0
+            continue
+        if start == 0:
+            start = int(row[0])
         end = int(row[0]) - start
         time.append(int(row[0]) - start)
         x.append(float(row[1]))
