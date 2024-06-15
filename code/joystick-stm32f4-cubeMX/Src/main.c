@@ -113,8 +113,6 @@ int main(void)
   //dataArray.ptr = malloc(3000 * sizeof(struct Data));
   dataArray.length = 0;
 
-  int index = 0;
-
   int16_t x_value;
   int16_t y_value;
 
@@ -134,19 +132,6 @@ int main(void)
   while (1)
   {
 	
-	if (in_benchmark == 1) {
-		x_value = read_adc_channel(0);
-		y_value = read_adc_channel(1);
-
-		x_standard_value = (((float) x_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
-		y_standard_value = (((float) y_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
-
-		dataArray.ptr[dataArray.length].time = get_time_ms();
-		dataArray.ptr[dataArray.length].x = (float) x_standard_value;
-		dataArray.ptr[dataArray.length].y = (float) y_standard_value;
-		dataArray.length++;
-	}
-
 	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET && in_benchmark == 1) {
 		in_benchmark = 0;
 		while(HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin));
@@ -165,6 +150,18 @@ int main(void)
 		dataArray.length = 0;
 	}
 
+		if (in_benchmark == 1) {
+		x_value = read_adc_channel(0);
+		y_value = read_adc_channel(1);
+
+		x_standard_value = (((float) x_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
+		y_standard_value = (((float) y_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
+
+		dataArray.ptr[dataArray.length].time = get_time_ms();
+		dataArray.ptr[dataArray.length].x = (float) x_standard_value;
+		dataArray.ptr[dataArray.length].y = (float) y_standard_value;
+		dataArray.length++;
+	}
 
 	delay_ms(10);
 
