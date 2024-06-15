@@ -27,11 +27,16 @@
 /* USER CODE BEGIN Includes */
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+struct Data{
+    uint32_t time;
+    float x;
+    float y;
+};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -93,13 +98,17 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1);
-  uint8_t min_x = 0x70;
-  uint8_t max_x = 0x90;
-  uint8_t min_y = 0x70;
-  uint8_t max_y = 0x90;
+  uint8_t min_x = 0x6E;
+  uint8_t max_x = 0x92;
+  uint8_t min_y = 0x6E;
+  uint8_t max_y = 0x92;
 
   uint8_t x_val = 0x80;
   uint8_t y_val = 0x80;
+
+  struct Data *data_ptr = (struct Data*)malloc(sizeof(struct Data)*2000);
+  uint16_t i = 0;
+  uint16_t reached = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,24 +117,43 @@ int main(void)
   {
     x_val = n64_get_x();
     y_val = n64_get_y(); 
-    if (x_val < min_x) {
-      min_x = x_val;
-    }
-    if (x_val > max_x) {
-      max_x = x_val;
-    }
-    if (y_val < min_y) {
-      min_y = y_val;
-    }
-    if (y_val > max_y) {
-      max_y = y_val;
-    }
+    // if (x_val < min_x) {
+    //   min_x = x_val;
+    // }
+    // if (x_val > max_x) {
+    //   max_x = x_val;
+    // }
+    // if (y_val < min_y) {
+    //   min_y = y_val;
+    // }
+    // if (y_val > max_y) {
+    //   max_y = y_val;
+    // }
     float out_x = (float) ((float)((x_val - min_x) * (2)) / (max_x - min_x)) - (float)1;
     float out_y = (float) ((float)((y_val - min_y) * (2)) / (max_y - min_y)) - (float)1;
-    if(HAL_GPIO_ReadPin(EOF_GPIO_Port, EOF_Pin) == GPIO_PIN_SET)
+    data_ptr[i].time = get_time_ms();
+    data_ptr[i].x = out_x;
+    data_ptr[i].y = out_y;
+    i++;
+    if (i >= 2000) 
+    {
+      i = 0;
+      reached = 1;
+    }
+    if(HAL_GPIO_ReadPin(EOF_GPIO_Port, EOF_Pin) == GPIO_PIN_SET){
+      if (reached == 1) reached = 2000;
+      else {
+        reached = i;
+        i = 0;
+      }
+      for(int j = 0; j < reached; j++)
+      {
+        printf("%d,%f,%f\r\n", data_ptr[i].time, data_ptr[i].x, data_ptr[i].y);
+        i++;
+        if (i >= 2000) i = 0;
+      }
       printf("End of Transmission\r\n");
-    else 
-      printf("%d,%f,%f, x val = %d, y val = %d\r\n", get_time_ms(), out_x, out_y, x_val, y_val);
+    }
     delay_ms(10);
 
     /* USER CODE END WHILE */
@@ -195,7 +223,7 @@ uint8_t n64_get_x()
   returval = returval | (HAL_GPIO_ReadPin(xb3_GPIO_Port, xb3_Pin)<<3);
   returval = returval | (HAL_GPIO_ReadPin(xb4_GPIO_Port, xb4_Pin)<<4);
   returval = returval | (HAL_GPIO_ReadPin(xb5_GPIO_Port, xb5_Pin)<<5);
-  returval = returval | (HAL_GPIO_ReadPin(xb6_GPIO_Port, xb6_Pin)<<6);
+  returval = returval | (HAL_GPIO_ReadPin(xb7_GPIO_Port, xb7_Pin)<<6);
   returval = returval | ((HAL_GPIO_ReadPin(xb7_GPIO_Port, xb7_Pin)^0x1)<<7);
   return returval;
 }
