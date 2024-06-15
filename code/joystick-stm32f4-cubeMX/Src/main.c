@@ -30,6 +30,20 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+struct Data{
+	uint32_t time;
+	float x;
+	float y;
+};
+
+typedef struct Data Data;
+
+struct DynamicArray {
+	Data *ptr;			// Pointer to where array is located
+	size_t length;		// Number of elements used
+};
+
+typedef struct DynamicArray DynamicArray;
 
 /* USER CODE END PTD */
 
@@ -93,18 +107,26 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1);
+
+  DynamicArray dataArray;
+  //initDynamicDataArray(&dataArray, 3000);
+  //dataArray.ptr = malloc(3000 * sizeof(struct Data));
+  dataArray.length = 0;
+
+  int index = 0;
+
   int16_t x_value;
   int16_t y_value;
 
   float x_standard_value = 0.00;
   float y_standard_value = 0.00;
 
-  int16_t x_max_input = 0;
-  int16_t x_min_input = 4095;
-  int16_t y_max_input = 0;
-  int16_t y_min_input = 4095;
+  int16_t max_input = 4095;
+  int16_t min_input = 0;
   int16_t max_output = 1;
   int16_t min_output = -1;
+
+  uint8_t in_benchmark = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,30 +134,37 @@ int main(void)
   while (1)
   {
 	
-	x_value = read_adc_channel(0);
-	y_value = read_adc_channel(1);
+	if (in_benchmark == 1) {
+		x_value = read_adc_channel(0);
+		y_value = read_adc_channel(1);
 
-	if (x_value > x_max_input) {
-		x_max_input = x_value;
-	}
-	if (x_value < x_min_input) {
-		x_min_input = x_value;
-	}
-	if (y_value > y_max_input) {
-		y_max_input = y_value;
-	}
-	if (y_value < y_min_input) {
-		y_min_input = y_value;
+		x_standard_value = (((float) x_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
+		y_standard_value = (((float) y_value - min_input) * (max_output - min_output))/(max_input - min_input) + min_output;
+
+		dataArray.ptr[dataArray.length].time = get_time_ms();
+		dataArray.ptr[dataArray.length].x = (float) x_standard_value;
+		dataArray.ptr[dataArray.length].y = (float) y_standard_value;
+		dataArray.length++;
 	}
 
-	x_standard_value = (((float) x_value - x_min_input) * (max_output - min_output))/(x_max_input - x_min_input) + min_output;
-	y_standard_value = (((float) y_value - y_min_input) * (max_output - min_output))/(y_max_input - y_min_input) + min_output;
-
-	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET) {
+	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET && in_benchmark == 1) {
+		in_benchmark = 0;
+		while(HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin));
+		for (int i = 0; i < dataArray.length; i++) {
+			printf("%d,%.2f,%.2f\r\n", dataArray.ptr[i].time, dataArray.ptr[i].x, dataArray.ptr[i].y);
+		}
 		printf("End of Transmission\r\n");
-	} else {
-		printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
+		free(dataArray.ptr);
+		dataArray.length = 0;
 	}
+
+	if (HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin) == GPIO_PIN_SET && in_benchmark == 0) {
+		in_benchmark = 1;
+		while(HAL_GPIO_ReadPin(EOF_Button_GPIO_Port, EOF_Button_Pin));
+		dataArray.ptr = malloc(3000 * sizeof(struct Data));
+		dataArray.length = 0;
+	}
+
 
 	delay_ms(10);
 
