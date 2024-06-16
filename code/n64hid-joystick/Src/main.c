@@ -131,6 +131,7 @@ int main(void)
     // }
     float out_x = (float) ((float)((x_val - min_x) * (2)) / (max_x - min_x)) - (float)1;
     float out_y = (float) ((float)((y_val - min_y) * (2)) / (max_y - min_y)) - (float)1;
+    printf("%ld, %f, %f, hex x = %x, hex y = %x\r\n", get_time_ms(), out_x, out_y, x_val, y_val);
     data_ptr[i].time = get_time_ms();
     data_ptr[i].x = out_x;
     data_ptr[i].y = out_y;
@@ -148,7 +149,7 @@ int main(void)
       }
       for(int j = 0; j < reached; j++)
       {
-        printf("%d,%f,%f\r\n", data_ptr[i].time, data_ptr[i].x, data_ptr[i].y);
+        // printf("%d,%f,%f\r\n", data_ptr[i].time, data_ptr[i].x, data_ptr[i].y);
         i++;
         if (i >= 2000) i = 0;
       }
