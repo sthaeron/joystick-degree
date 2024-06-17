@@ -93,7 +93,7 @@ k = 0
 
 print("Flick trial x, X min, X max, X mean, Y min, Y max, Y mean")
 print("Flick #1, -, -, -, ", y_min_max_mean[0][0], ", ", y_min_max_mean[0][1], ", ", y_min_max_mean[0][2])
-print("Flick #2, ", x_min_max_mean[0][0], ", ", x_min_max_mean[0][1], ", ", x_min_max_mean[1][2], ", ", y_min_max_mean[1][0], ", ", y_min_max_mean[1][1], ", ", y_min_max_mean[1][2])
+print("Flick #2, ", x_min_max_mean[0][0], ", ", x_min_max_mean[0][1], ", ", x_min_max_mean[0][2], ", ", y_min_max_mean[1][0], ", ", y_min_max_mean[1][1], ", ", y_min_max_mean[1][2])
 print("Flick #3, ", x_min_max_mean[1][0], ", ", x_min_max_mean[1][1], ", ", x_min_max_mean[1][2], ", ", '-', ", ", '-', ", ", '-')
 print("Flick #4, ", x_min_max_mean[2][0], ", ", x_min_max_mean[2][1], ", ", x_min_max_mean[2][2], ", ", y_min_max_mean[2][0], ", ", y_min_max_mean[2][1], ", ", y_min_max_mean[2][2])
 print("Flick #5, -, -, -, ", y_min_max_mean[3][0], ", ", y_min_max_mean[3][1], ", ", y_min_max_mean[3][2])
