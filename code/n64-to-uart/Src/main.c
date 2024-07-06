@@ -94,6 +94,22 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+<<<<<<< HEAD:code/n64-to-uart/Src/main.c
+=======
+  HAL_TIM_Base_Start_IT(&htim1);
+  int16_t x_value;
+  int16_t y_value;
+
+  float x_standard_value = 0.00;
+  float y_standard_value = 0.00;
+
+  int16_t x_max_input = 0;
+  int16_t x_min_input = 4095;
+  int16_t y_max_input = 0;
+  int16_t y_min_input = 4095;
+  int16_t max_output = 1;
+  int16_t min_output = -1;
+>>>>>>> dreamcast:code/dreamcast-usart-cubeMX/Src/main.c
 
   /* USER CODE END 2 */
 
@@ -101,11 +117,37 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+<<<<<<< HEAD:code/n64-to-uart/Src/main.c
     uint8_t x = 0;
     uint8_t y = 0;
     read_n64_joystick(&x, &y);
     printf("X axis: %d, Y axis %d \r\n", 15, 124);
     HAL_Delay(1000);
+=======
+	
+	x_value = read_adc_channel(0);
+	y_value = read_adc_channel(1);
+
+	if (x_value > x_max_input) {
+		x_max_input = x_value;
+	}
+	if (x_value < x_min_input) {
+		x_min_input = x_value;
+	}
+	if (y_value > y_max_input) {
+		y_max_input = y_value;
+	}
+	if (y_value < y_min_input) {
+		y_min_input = y_value;
+	}
+
+	x_standard_value = (((float) x_value - x_min_input) * (max_output - min_output))/(x_max_input - x_min_input) + min_output;
+	y_standard_value = (((float) y_value - y_min_input) * (max_output - min_output))/(y_max_input - y_min_input) + min_output;
+
+	printf("%d,%.2f,%.2f\r\n", get_time_ms(), x_standard_value, y_standard_value);
+
+	delay_ms(10);
+>>>>>>> dreamcast:code/dreamcast-usart-cubeMX/Src/main.c
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
